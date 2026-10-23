@@ -1,4 +1,4 @@
-# AI Knowledge MCP Server
+﻿# AI Knowledge MCP Server
 
 **Local-first multilingual document retrieval over the Model Context Protocol (MCP)**
 
@@ -12,7 +12,9 @@ A Python MCP server for reading, chunking, indexing, and semantically searching 
 
 Six tools exposed to an MCP-compatible client: `server_info`, `count_words`, `read_knowledge_document`, `chunk_knowledge_document`, `index_knowledge_document`, and `search_knowledge`.
 
-![Six MCP tools in MCP Inspector](assets/screenshots/mcp-tools.png)
+<p align="center">
+  <img src="assets/screenshots/mcp-tools.png" alt="Six MCP tools in MCP Inspector" width="440">
+</p>
 
 ### Multilingual semantic search
 
@@ -80,27 +82,17 @@ The embedding service uses CUDA when available and otherwise falls back to CPU. 
 
 ## Capabilities
 
-\| Component | Implementation |
-
-\| --- | --- |
-
-\| MCP tools | Server info, word counts, document read/chunk/index, semantic search |
-
-\| MCP resource | `knowledge://status` |
-
-\| MCP prompt | `summarize_document` |
-
-\| Files | PDF, UTF-8 TXT, Markdown |
-
-\| Chunking | Configurable character window and overlap for the chunk tool; fixed defaults for indexing |
-
-\| Embeddings | Local multilingual BGE-M3 via Sentence Transformers |
-
-\| Storage | Local persistent ChromaDB collection |
-
-\| Reindexing | Updates a document's chunks and removes stale chunks in the tested normal path |
-
-\| Testing | pytest unit and document security regression tests |
+| Component | Implementation |
+| --- | --- |
+| MCP tools | Server info, word counts, document read/chunk/index, semantic search |
+| MCP resource | `knowledge://status` |
+| MCP prompt | `summarize_document` |
+| Files | PDF, UTF-8 TXT, Markdown |
+| Chunking | Configurable character window and overlap for the chunk tool; fixed defaults for indexing |
+| Embeddings | Local multilingual BGE-M3 via Sentence Transformers |
+| Storage | Local persistent ChromaDB collection |
+| Reindexing | Updates a document's chunks and removes stale chunks in the tested normal path |
+| Testing | pytest unit and document security regression tests |
 
 ## Quick start
 
@@ -188,15 +180,11 @@ The search tool returns **retrieved passages and metadata**, not a generated nat
 
 The following metrics are from **small project-authored development test sets**. They are not an independent benchmark and should not be interpreted as production accuracy.
 
-\| Evaluation | Answerable cases | Reported results |
-
-\| --- | ---: | --- |
-
-\| Initial multilingual retrieval | 4 | 4/4 correct top-1; Recall@3 100%; MRR@3 1.00 |
-
-\| Development questions | 24 | 24/24 correct top-1; Recall@3 100%; MRR@3 1.00 |
-
-\| Hard positive questions | 8 | 8/8 correct top-1; Recall@3 100%; MRR@3 1.00 |
+| Evaluation | Answerable cases | Reported results |
+|---|---:|---|
+| Initial multilingual retrieval | 4 | 4/4 correct top-1; Recall@3 100%; MRR@3 1.00 |
+| Development questions | 24 | 24/24 correct top-1; Recall@3 100%; MRR@3 1.00 |
+| Hard positive questions | 8 | 8/8 correct top-1; Recall@3 100%; MRR@3 1.00 |
 
 The 30-question development set also included **6 unanswerable diagnostic questions**, which were **not** included in the 24-answerable-question retrieval scores. The hard-case set included **8 negative/out-of-scope questions**.
 
@@ -334,3 +322,4 @@ Building AI-powered applications, intelligent agents, multilingual retrieval sys
 ---
 
 **Project Status:** v0.1.0 — Functional local prototype with verified unit tests. GitHub Actions and Docker execution are pending validation.
+
