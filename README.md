@@ -8,17 +8,20 @@ A Python MCP server for reading, chunking, indexing, and semantically searching 
 
 ## Demo
 
+
 ### MCP tools
 
 Six tools exposed to an MCP-compatible client: `server_info`, `count_words`, `read_knowledge_document`, `chunk_knowledge_document`, `index_knowledge_document`, and `search_knowledge`.
 
 <p align="center">
-  <img src="assets/screenshots/mcp-tools.png" alt="Six MCP tools in MCP Inspector" width="440">
+  <img src="assets/screenshots/mcp-tools.png" alt="Six MCP tools in MCP Inspector" width="800">
 </p>
 
 ### Multilingual semantic search
 
 An Arabic-language query retrieves relevant knowledge chunks, with filenames, metadata, and cosine distances. **Lower distance means closer similarity** in this collection.
+
+![Semantic search results from MCP Inspector](assets/screenshots/semantic-search.png)
 
 
 ### Document indexing
