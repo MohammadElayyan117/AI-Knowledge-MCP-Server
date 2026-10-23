@@ -20,7 +20,6 @@ Six tools exposed to an MCP-compatible client: `server_info`, `count_words`, `re
 
 An Arabic-language query retrieves relevant knowledge chunks, with filenames, metadata, and cosine distances. **Lower distance means closer similarity** in this collection.
 
-![Semantic search results from MCP Inspector](assets/screenshots/semantic-search.png)
 
 ### Document indexing
 
