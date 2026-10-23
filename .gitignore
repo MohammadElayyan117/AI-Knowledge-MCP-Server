@@ -1,0 +1,50 @@
+
+# Python-generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+
+# Virtual environments
+.venv/
+venv/
+
+# Test and tooling cache
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Local knowledge documents
+/documents/
+
+# Local vector databases
+/data/
+/chroma_db/
+
+# Downloaded AI models
+/models/
+
+# Credentials and environment variables
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*credentials*.json
+
+# Local evaluation reports
+/reports/
+
+# Logs and temporary files
+*.log
+*.tmp
+
+# Editor and OS files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db

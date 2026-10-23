@@ -1,0 +1,37 @@
+
+name: Python Tests
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  tests:
+    name: Unit Tests (Python 3.12 / CPU)
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - name: Set up uv
+        uses: astral-sh/setup-uv@c771a70e6277c0a99b617c7a806ffedaca235ff9 # v9.0.0
+        with:
+          python-version: "3.12"
+          enable-cache: true
+
+      - name: Check dependency lock
+        run: uv lock --check
+
+      - name: Install dependencies
+        run: uv sync --locked --dev
+
+      - name: Verify CPU PyTorch
+        run: uv run --locked python -c "import torch; print('Torch:', torch.__version__); assert '+cpu' in torch.__version__"
+
+      - name: Run unit tests
+        run: uv run --locked pytest tests/ -q

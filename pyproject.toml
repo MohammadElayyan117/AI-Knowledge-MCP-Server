@@ -1,0 +1,45 @@
+
+[project]
+name = "ai-knowledge-mcp-server"
+version = "0.1.0"
+description = "Local multilingual knowledge retrieval MCP server with BGE-M3 embeddings, ChromaDB, and document processing."
+readme = "README.md"
+authors = [
+    { name = "Mohammad Ahmad Elayyan", email = "mohamadelayyan84@gmail.com" }
+]
+requires-python = ">=3.12"
+dependencies = [
+    "chromadb>=1.5.9",
+    "mcp[cli]>=2.3.0",
+    "pymupdf>=1.28.2",
+    "sentence-transformers>=6.2.0",
+    "torch",
+]
+
+[project.scripts]
+ai-knowledge-mcp-server = "ai_knowledge_mcp_server:main"
+
+[build-system]
+requires = ["uv_build>=0.13.1,<0.14.0"]
+build-backend = "uv_build"
+
+[dependency-groups]
+dev = [
+    "pytest>=9.1.1",
+]
+
+[tool.uv.sources]
+torch = [
+    { index = "pytorch-cu130", marker = "sys_platform == 'win32'" },
+    { index = "pytorch-cpu", marker = "sys_platform == 'linux' or sys_platform == 'darwin'" },
+]
+
+[[tool.uv.index]]
+name = "pytorch-cu130"
+url = "https://download.pytorch.org/whl/cu130"
+explicit = true
+
+[[tool.uv.index]]
+name = "pytorch-cpu"
+url = "https://download.pytorch.org/whl/cpu"
+explicit = true
